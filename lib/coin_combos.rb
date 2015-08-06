@@ -8,7 +8,9 @@ class Fixnum
     amount = self
     result = String.new()
     quarter = 0
+    dime = 0
     nickel = 0
+    penny = 0
 # binding.pry
     until amount.==(0)
       if coins.include?(self)
@@ -20,17 +22,27 @@ class Fixnum
 # binding.pry
       elsif amount >= coins.keys[1]
         amount = amount.-(coins.keys[1])
-      else amount >= coins.keys[2]
+        dime = dime + 1
+      elsif amount >= coins.keys[2]
         amount = amount.-(coins.keys[2])
         nickel = nickel + 1
+      else amount >= coins.keys[3]
+        amount = amount.-(coins.keys[3])
+        penny = penny + 1
       end
     end
 
     if quarter > 0
       result.concat(quarter.to_s + ' ').concat(coins.fetch(25) + ' ')
     end
+    if dime > 0
+      result.concat(dime.to_s + ' ').concat(coins.fetch(10) + ' ')
+    end
     if nickel > 0
-      result.concat(coins.fetch(5) + ' ')
+      result.concat(nickel.to_s + ' ').concat(coins.fetch(5) + ' ')
+    end
+    if penny > 0
+      result.concat(penny.to_s + ' ').concat(coins.fetch(1) + ' ')
     end
     result
   end
