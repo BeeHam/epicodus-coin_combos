@@ -1,7 +1,6 @@
 require('rspec')
 require('coin_combos')
 
-
 describe('Fixnum#coin_combo') do
   it('return single coin') do
     expect((10).coin_combo()).to(eq("dime(s)"))
