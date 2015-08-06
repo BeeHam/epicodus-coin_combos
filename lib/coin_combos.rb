@@ -1,10 +1,10 @@
 # require('pry')
 class Fixnum
   define_method(:coin_combo) do
-    coins = {25 => "quarter",
-             10 => "dime",
-             5 => "nickel",
-             1 => "penny"}
+    coins = {25 => "quarter(s)",
+             10 => "dime(s)",
+             5 => "nickel(s)",
+             1 => "pennies"}
     amount = self
     result = String.new()
     quarter = 0
@@ -27,10 +27,10 @@ class Fixnum
     end
 
     if quarter > 0
-      result.concat(coins.fetch(25) + ', ')
+      result.concat(quarter.to_s + ' ').concat(coins.fetch(25) + ' ')
     end
     if nickel > 0
-      result.concat(coins.fetch(5))
+      result.concat(coins.fetch(5) + ' ')
     end
     result
   end
