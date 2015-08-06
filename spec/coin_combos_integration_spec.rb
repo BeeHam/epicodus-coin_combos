@@ -10,4 +10,10 @@ describe('the coin combo path', {:type => :feature}) do
     click_button('Calculate')
     expect(page).to have_content('3 quarter(s) 1 pennies ')
   end
+
+  it('returns user to index page') do
+    visit('/coin_combos?coin_combos=76')
+    click_link('Go Home!')
+    expect(page).to have_content('Calculate Your Change')
+  end
 end

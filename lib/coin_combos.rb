@@ -1,4 +1,4 @@
-# require('pry')
+
 class Fixnum
   define_method(:coin_combo) do
     coins = {25 => "quarter(s)",
@@ -11,7 +11,7 @@ class Fixnum
     dime = 0
     nickel = 0
     penny = 0
-# binding.pry
+
     until amount.==(0)
       if coins.include?(self)
         amount = amount - self
@@ -19,7 +19,6 @@ class Fixnum
       elsif amount >= coins.keys[0]
         amount = amount.-(coins.keys[0])
         quarter = quarter + 1
-# binding.pry
       elsif amount >= coins.keys[1]
         amount = amount.-(coins.keys[1])
         dime = dime + 1
